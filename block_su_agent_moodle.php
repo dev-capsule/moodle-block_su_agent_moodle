@@ -58,7 +58,7 @@ class block_su_agent_moodle extends block_base {
      * @throws dml_exception
      */
     public function get_content() {
-        global $USER, $CFG;
+        global $USER;
         // Charger le module JS AMD.
         $this->page->requires->js_call_amd('block_su_agent_moodle/copy', 'init');
         // Récupérer l'IP du client (utilisateur).
