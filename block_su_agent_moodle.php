@@ -62,11 +62,7 @@ class block_su_agent_moodle extends block_base {
         // Charger le module JS AMD.
         $this->page->requires->js_call_amd('block_su_agent_moodle/copy', 'init');
         // Récupérer l'IP du client (utilisateur).
-        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ipclient = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else {
-            $ipclient = $_SERVER['REMOTE_ADDR'] ?? null;
-        }
+        $ipclient = getremoteaddr();
         // Récupérer d'autres informations du système et de l'utilisateur.
         $systemnavigator = $_SERVER['HTTP_USER_AGENT'];
         $time = time();
