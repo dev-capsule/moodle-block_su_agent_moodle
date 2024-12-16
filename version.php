@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
  *
- * @package   block_su_agent_moodle
+ * @package     block_su_agent_moodle
  * @copyright   2018 Sorbonne Université
  * @copyright   2024 Victor Da Silva Caseiro <victor.da_silva_caseiro@sorbonne-universite.fr>
  * @copyright   2024 Thomas Naudin <thomas.naudin@sorbonne-universite.fr>
