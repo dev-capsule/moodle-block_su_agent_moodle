@@ -38,12 +38,12 @@ $subject = get_config('block_su_agent_moodle', 'subject');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'])) {
     // Récupérer et nettoyer les variables.
-    $message = clean_param($_POST['message'], PARAM_TEXT);
-    $server = clean_param($_POST['server'], PARAM_TEXT);
-    $identification = clean_param($_POST['identification'], PARAM_TEXT);
-    $ipaddress = clean_param($_POST['ipaddress'], PARAM_RAW);
-    $configuration = clean_param($_POST['configuration'], PARAM_TEXT);
-    $date = clean_param($_POST['date'], PARAM_TEXT);
+    $message = required_param('message', PARAM_TEXT);
+    $server = required_param('server', PARAM_TEXT);
+    $identification = required_param('identification', PARAM_TEXT);
+    $ipaddress = required_param('ipaddress', PARAM_TEXT);
+    $configuration = required_param('configuration', PARAM_TEXT);
+    $date = required_param('date', PARAM_TEXT);
     // Construire le corps de l'e-mail.
     $emailbody = "<p>{$langmessage} : $message</p>";
     $emailbody .= "<p> $server</p>";
