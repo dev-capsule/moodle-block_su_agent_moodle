@@ -1,0 +1,30 @@
+<div id="compagnon" class="su-agent-container">
+    <div id="serverlabel" class="server-label">
+        <span>{{#str}}server, block_su_agent_moodle{{/str}} : <strong>{{ipserveur}}</strong></span>
+    </div>
+    <div id="identificationlabel" class="identification-label">
+        <span>{{#str}}identification, block_su_agent_moodle{{/str}} : <strong>{{username}}</strong></span>
+    </div>
+    <div id="ipaddresslabel" class="ipaddress-label">
+        <span>{{#str}}ipaddress, block_su_agent_moodle{{/str}} : <strong>{{ipclient}}</strong></span>
+    </div>
+    <div id="configurationlabel" class="configuration-label">
+        <span>{{#str}}configuration, block_su_agent_moodle{{/str}} : <i>{{systemnavigator}}</i></span>
+    </div>
+    <div id="datelabel" class="date-label">
+        <span>{{#str}}date, block_su_agent_moodle{{/str}} : <strong>{{daytime}}</strong></span>
+    </div>
+    <div id="infoslabel" class="infos-label">
+        {{#mailactive}}
+            <textarea id="msg" name="msg" class="form-control su-agent-message"></textarea>
+            <div>
+                <button type="button" id="msgbtn" class="btn btn-primary mt-1 su-agent-send">
+                    {{#str}}msgbtn, block_su_agent_moodle{{/str}}
+                </button>
+            </div>
+        {{/mailactive}}
+        {{^mailactive}}
+            <a href="#" id="infos" class="su-agent-copy">{{#str}}copydatamsg, block_su_agent_moodle{{/str}}</a>
+        {{/mailactive}}
+    </div>
+</div>

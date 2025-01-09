@@ -23,8 +23,16 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$plugin = new stdClass();
-$plugin->version = 2025010706;
-$plugin->requires = 2020061500;
-$plugin->component = 'block_su_agent_moodle';
-$plugin->release = '2.0';
+
+$functions = [
+    'block_su_agent_moodle_send_mail' => [
+        'classname'     => 'block_su_agent_moodle_external',
+        'methodname'    => 'send_mail',
+        'description'   => 'Send mail with user information',
+        'type'         => 'write',
+        'ajax'         => true,
+        'loginrequired' => true,
+        'capabilities' => 'block/su_agent_moodle:sendmail',
+    ],
+];
+

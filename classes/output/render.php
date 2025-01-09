@@ -14,7 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace block_su_agent_moodle\output;
+use plugin_renderer_base;
+
 /**
+ * Output renderer for SU Agent Moodle block.
  *
  * @package     block_su_agent_moodle
  * @copyright   2018 Sorbonne Université
@@ -22,9 +26,11 @@
  * @copyright   2024 Thomas Naudin <thomas.naudin@sorbonne-universite.fr>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-defined('MOODLE_INTERNAL') || die();
-$plugin = new stdClass();
-$plugin->version = 2025010706;
-$plugin->requires = 2020061500;
-$plugin->component = 'block_su_agent_moodle';
-$plugin->release = '2.0';
+
+/**
+ * Renderer class for handling output rendering in the SU Agent Moodle block.
+ *
+ * @package     block_su_agent_moodle\output
+ */
+class renderer extends plugin_renderer_base {
+}

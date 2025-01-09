@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
  *
  * @package     block_su_agent_moodle
@@ -22,27 +23,34 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$string['su_agent_moodle:addinstance'] = "Add an Agent Moodle block";
-$string['su_agent_moodle:myaddinstance'] = "Add a Agent Moodle to Dashboard";
-$string['su_agent_moodle:modify'] = "Modify Agent Moodle  content";
-$string['su_agent_moodle:sendmail']        = "Send";
-$string['pluginname'] = "Moodle Agent";
-$string['server'] = "Moodle Server";
-$string['identification'] = "User";
-$string['ipaddress'] = "IP adress";
+
 $string['configuration'] = "Configuration";
-$string['date'] = "Date";
-$string['msgalertgood'] = "Your data has been copied.";
 $string['copydatamsg'] = "Copy your data to the clipboard.";
-$string['msgalertbadbrowser'] = "Your browser is outdated";
-$string['error'] = "A problem has occurred";
+$string['date'] = "Date";
+$string['emailsenderror'] = "Failed to send email to primary recipient.";
+$string['emailsendfailed'] = "Failed to send email";
 $string['enabled'] = "Enable email sending : ";
 $string['enabled_desc'] = "Uncheck to disable email sending.";
-$string['receiver'] = "Other recipient in cc : ";
-$string['supportemail'] = "Check to cc the site administrator.";
-$string['msgbtn'] = "Send this information to the administrator.";
-$string['msgemailsuccess'] = "Email sent successfully !";
-$string['msgemailerror'] = "An error occurred while sending the email.";
-$string['msgempty'] = "The message cannot be empty.";
+$string['error'] = "A problem has occurred";
+$string['identification'] = "User";
+$string['invalidrequest'] = "Invalid request.";
+$string['ipaddress'] = "IP adress";
 $string['message'] = "User message";
+$string['moodleinfo'] = "Configurations";
+$string['msgalertbadbrowser'] = "Your browser is outdated";
+$string['msgalertgood'] = "Your data has been copied.";
+$string['msgbtn'] = "Send this information to the administrator.";
+$string['msgemailerror'] = "An error occurred while sending the email.";
+$string['msgemailsuccess'] = "Email sent successfully !";
+$string['msgempty'] = "The message cannot be empty.";
+$string['pluginname'] = "Moodle Agent";
+$string['privacy:metadata'] = "The SU Agent Moodle block does not store any personal data.";
+$string['receiver'] = "Other recipient in cc : ";
+$string['server'] = "Moodle Server";
+$string['su_agent_moodle:addinstance'] = "Add a new SU Agent block";
+$string['su_agent_moodle:modify'] = "Modify SU Agent block settings";
+$string['su_agent_moodle:myaddinstance'] = "Add a new SU Agent block to Dashboard";
+$string['su_agent_moodle:sendmail'] = "Send emails through the SU Agent block";
 $string['subject_custom'] = "Subject of message : ";
+$string['supportemail'] = "Check to cc the site administrator.";
+

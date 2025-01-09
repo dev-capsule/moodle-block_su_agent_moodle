@@ -13,7 +13,9 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
+ * Block for SU Agent Moodle
  *
  * @package     block_su_agent_moodle
  * @copyright   2018 Sorbonne Université
@@ -21,87 +23,75 @@
  * @copyright   2024 Thomas Naudin <thomas.naudin@sorbonne-universite.fr>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
+/**
+ * Block class for SU Agent Moodle
+ */
 class block_su_agent_moodle extends block_base {
     /**
+     * Initialize the block
+     *
      * @throws coding_exception
+     * @return void
      */
     public function init() {
         $this->title = get_string('pluginname', 'block_su_agent_moodle');
     }
+
+    /**
+     * Indicates that this block has configuration.
+     *
+     * @return bool True if the block has configuration.
+     */
     public function has_config(): bool {
         return true;
     }
+
     /**
+     * Gets the content of the block.
+     *
      * @throws coding_exception
      * @throws dml_exception
-     */
-    public function get_mailactive() {
-        if (get_config('block_su_agent_moodle', 'mailenabled') === '1') {
-            $buttonlabel = get_string('msgbtn', 'block_su_agent_moodle');
-
-            $varsbtn = '<textarea id="msg" name="msg" class="form-control"></textarea>'
-                . '<div>'
-                . '<button type="button" id="msgbtn" class="btn btn-primary mt-1">'
-                . $buttonlabel
-                . '</button></div>';
-        } else {
-            $infomessage = get_string('copydatamsg', 'block_su_agent_moodle');
-
-            $varsbtn = '<a href="#" id="infos">'
-                . $infomessage
-                . '</a>';
-        }
-        return $varsbtn;
-    }
-    /**
-     * @throws coding_exception
-     * @throws dml_exception
+     * @return stdClass|null The block content
      */
     public function get_content() {
         global $USER;
-        // Charger le module JS AMD.
-        $this->page->requires->js_call_amd('block_su_agent_moodle/copy', 'init');
-        // Récupérer l'IP du client (utilisateur).
-        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ipclient = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        } else {
-            $ipclient = $_SERVER['REMOTE_ADDR'] ?? null;
+        if ($this->content !== null) {
+            return $this->content;
         }
-        // Récupérer d'autres informations du système et de l'utilisateur.
-        $systemnavigator = $_SERVER['HTTP_USER_AGENT'];
-        $time = time();
-        $daytime = date('d/m/Y H:i:s', $time);
-        $ipserveur = $_SERVER['SERVER_ADDR'] ?? null;
-        $username = $USER->username ?? null;
-        // Créer un objet pour stocker le contenu.
+        $this->page->requires->js_call_amd('block_su_agent_moodle/copy', 'init');
+
+        $data = [
+            'ipserveur' => $_SERVER['SERVER_ADDR'] ?? null,
+            'username' => $USER->username ?? null,
+            'ipclient' => getremoteaddr(),
+            'systemnavigator' => $_SERVER['HTTP_USER_AGENT'],
+            'daytime' => date('d/m/Y H:i:s', time()),
+            'mailactive' => get_config('block_su_agent_moodle', 'mailenabled') === '1',
+        ];
+
         $this->content = new stdClass;
-        // Générer le contenu HTML en utilisant les informations collectées.
-        $this->content->text = '
-        <div id="compagnon">
-            <div id="serverlabel">
-                <span>' . get_string('server', 'block_su_agent_moodle') . ' : <strong>' . $ipserveur . '</strong></span>
-            </div>
-            <div id="identificationlabel">
-                <span>' . get_string('identification', 'block_su_agent_moodle') . ' : <strong>' . $username . '</strong></span>
-            </div>
-            <div id="ipaddresslabel">
-                <span>' . get_string('ipaddress', 'block_su_agent_moodle') . ' : <strong>' . $ipclient . '</strong></span>
-            </div>
-            <div id="configurationlabel">
-                <span>' . get_string('configuration', 'block_su_agent_moodle') . ' : <i>' . $systemnavigator . '</i></span>
-            </div>
-            <div id="datelabel">
-                <span>' . get_string('date', 'block_su_agent_moodle') . ' : <strong>' . $daytime . '</strong></span>
-            </div>
-            <div id="infoslabel">' . $this->get_mailactive() . '</div>
-        </div>';
-        // On ne fait PAS l'appel direct à send_mail() ici.
+        $this->content->text = $this->render_template('block_su_agent_moodle/content', $data);
+
         return $this->content;
     }
+
     /**
-     * Disallow multiple instance.
+     * Render a template
      *
-     * @return bool
+     * @param string $template The template path
+     * @param array|stdClass $data The data for the template
+     * @return string The rendered content
+     */
+    protected function render_template($template, $data) {
+        global $OUTPUT;
+        return $OUTPUT->render_from_template($template, $data);
+    }
+
+    /**
+     * Indicates that this block does not allow multiple instances
+     *
+     * @return bool False as multiple instances are not allowed
      */
     public function instance_allow_multiple(): bool {
         return false;

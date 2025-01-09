@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
  *
  * @package     block_su_agent_moodle
@@ -25,7 +26,12 @@ defined('MOODLE_INTERNAL') || die;
 global $CFG;
 if ($hassiteconfig) {
     $settings = new admin_settingpage('block_su_agent_moodle', get_string('pluginname', 'block_su_agent_moodle'));
-    $settings->add(new admin_setting_heading('block_su_agent_moodle/moodleinfo', 'Configurations', ''));
+
+    $settings->add(new admin_setting_heading(
+        'block_su_agent_moodle/moodleinfo',
+        get_string('moodleinfo', 'block_su_agent_moodle'),
+        ''
+    ));
     $settings->add(
         new admin_setting_configcheckbox(
             'block_su_agent_moodle/mailenabled',

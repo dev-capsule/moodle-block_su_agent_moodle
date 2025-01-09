@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 /**
  *
  * @package     block_su_agent_moodle
@@ -22,27 +23,34 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-$string['su_agent_moodle:addinstance'] = "Adicionar bloco do Agente Moodle";
-$string['su_agent_moodle:myaddinstance'] = "Adicionar Agente Moodle ao Painel";
-$string['su_agent_moodle:modify'] = "Modificar conteúdo do Agente Moodle";
-$string['su_agent_moodle:sendmail'] = "Enviado";
-$string['pluginname'] = "Agente Moodle";
-$string['server'] = "Servidor Moodle";
-$string['identification'] = "Identificação";
-$string['ipaddress'] = "Endereço IP";
+
 $string['configuration'] = "Configuração";
-$string['date'] = "Data";
-$string['msgalertgood'] = "Os seus dados foram copiados.";
 $string['copydatamsg'] = "Copiar os seus dados para a área de transferência.";
-$string['msgalertbadbrowser'] = "O seu navegador está desatualizado";
-$string['error'] = "Ocorreu um problema";
+$string['date'] = "Data";
+$string['emailsenderror'] = "Falha ao enviar e-mail para o destinatário principal.";
+$string['emailsendfailed'] = "Falha ao enviar o email";
 $string['enabled'] = "Ativar o envio de email : ";
 $string['enabled_desc'] = "Desmarque para desativar o envio de emails.";
-$string['receiver'] = "Outro destinatário em cc : ";
-$string['supportemail'] = "Marque para colocar o administrador do site em cópia.";
-$string['msgbtn'] = "Enviar estas informações ao administrador";
-$string['msgemailsuccess'] = "Email enviado com sucesso !";
-$string['msgemailerror'] = "Ocorreu um erro";
-$string['msgempty'] = "A mensagem não pode estar vazia.";
+$string['error'] = "Ocorreu um problema";
+$string['identification'] = "Identificação";
+$string['invalidrequest'] = "Pedido inválido.";
+$string['ipaddress'] = "Endereço IP";
 $string['message'] = "Mensagem do utilizador";
+$string['moodleinfo'] = "Configurações";
+$string['msgalertbadbrowser'] = "O seu navegador está desatualizado";
+$string['msgalertgood'] = "Os seus dados foram copiados.";
+$string['msgbtn'] = "Enviar estas informações ao administrador";
+$string['msgemailerror'] = "Ocorreu um erro";
+$string['msgemailsuccess'] = "Email enviado com sucesso !";
+$string['msgempty'] = "A mensagem não pode estar vazia.";
+$string['pluginname'] = "Agente Moodle";
+$string['privacy:metadata'] = "O bloco SU Agent Moodle não armazena nenhum dado pessoal.";
+$string['receiver'] = "Outro destinatário em cc : ";
+$string['server'] = "Servidor Moodle";
+$string['su_agent_moodle:addinstance'] = "Adicionar um novo bloco SU Agent";
+$string['su_agent_moodle:modify'] = "Modificar as configurações do bloco SU Agent";
+$string['su_agent_moodle:myaddinstance'] = "Adicionar um novo bloco SU Agent ao Painel";
+$string['su_agent_moodle:sendmail'] = "Enviar emails através do bloco SU Agent";
 $string['subject_custom'] = "Assunto da mensagem : ";
+$string['supportemail'] = "Marque para colocar o administrador do site em cópia.";
+
