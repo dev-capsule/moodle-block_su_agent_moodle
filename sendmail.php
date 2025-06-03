@@ -50,10 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['message'])) {
     $emailbody .= "<p> $ipaddress</p>";
     $emailbody .= "<p> $configuration</p>";
     $emailbody .= "<p> $date</p>";
-    // Vérifier si la case à cocher mailto est activée.
     $mailtocc = get_config('block_su_agent_moodle', 'mailto');
     $mailsenttocc = false;
-    if ($mailtocc) { // Si la case est cochée.
+    if ($mailtocc) {
         $externalemail = new stdClass();
         $externalemail->email = $mailtocc;
         $externalemail->firstname = "";
