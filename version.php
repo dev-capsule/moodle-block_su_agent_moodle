@@ -24,7 +24,7 @@
  */
 defined('MOODLE_INTERNAL') || die();
 $plugin = new stdClass();
-$plugin->version = 2025010706;
+$plugin->version = 2025091901;
 $plugin->requires = 2020061500;
 $plugin->component = 'block_su_agent_moodle';
 $plugin->release = '2.0';
