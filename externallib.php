@@ -112,7 +112,7 @@ class block_su_agent_moodle_external extends external_api {
         if ($mailsenttocc || $sendtoadmin) {
             return [
                 'status' => 'success',
-                'message' => get_string('emailsent', 'block_su_agent_moodle'),
+                'message' => get_string('msgemailsuccess', 'block_su_agent_moodle'),
             ];
         } else {
             throw new moodle_exception('emailsenderror', 'block_su_agent_moodle');
