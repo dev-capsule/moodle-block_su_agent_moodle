@@ -35,7 +35,7 @@ The user can send their information to the platform administrator via email with
 
 ## Installation
 
-1. Download the plugin files from this repository or the [Moodle Plugins Directory](https://moodle.org/plugins/).
+1. Download the plugin files from this repository or the [Moodle Plugins Directory](https://moodle.org/plugins/block_su_agent_moodle).
 2. Place the plugin folder into the appropriate directory of your Moodle installation:
    - For this plugin, place it in `/blocks/`.
 3. Log in as an administrator on your Moodle site.
